@@ -93,7 +93,7 @@ Future<Finder?> commonTest(Map userMap, WidgetTester tester,
           finder = find.byType(Text);
           break;
         default:
-
+          print("暂不支持type "+configData.type);
           break;
       }
       break;
@@ -113,7 +113,7 @@ Future<Finder?> commonTest(Map userMap, WidgetTester tester,
       }
       break;
     default:
-
+      print("暂不支持action "+configData.action);
       break;
   }
   return Future.value(finder);
@@ -126,6 +126,7 @@ Future<void> delayed() async {
     print("延时2秒执行 then ");
   });
 }
+
 
 Future<void> takeScreenshot(WidgetTester tester,
     IntegrationTestWidgetsFlutterBinding binding) async {
