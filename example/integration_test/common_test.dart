@@ -31,6 +31,10 @@ class ConfigData extends Object {
   String text = '';
   // 期望组件数  _FindsWidgetMatcher(null, 0)
   int expect = 0;
+  // drag offset.dx
+  double offsetX = 0.0;
+  // drag offset.dy
+  double offsetY = 0.0;
 }
 
 Future<void> test( WidgetTester tester,
@@ -42,6 +46,10 @@ Future<void> test( WidgetTester tester,
   // var jsonArray = '[{"action":"delayed","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"takeScreenshot","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"fair使用和介绍","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"find.text","type":"","text":"fair 模板代码","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"ListCard >>>","expect":0},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.byType","type":"Image","text":"","expect":0},{"action":"expect","type":"","text":"","expect":8},{"action":"takeScreenshot","type":"","text":"","expect":0}]';
   // var jsonArray = '[{"action":"delayed","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"takeScreenshot","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"fair使用和介绍","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"find.text","type":"","text":"fair 模板代码","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"ListPage >>>","expect":0},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.byType","type":"Image","text":"","expect":0},{"action":"expect","type":"","text":"","expect":8},{"action":"takeScreenshot","type":"","text":"","expect":0}]';
   var jsonArray = '[{"action":"delayed","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"takeScreenshot","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"fair使用和介绍","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"find.text","type":"","text":"fair 模板代码","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"Login >>>","expect":0},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"enterText","type":"Image","text":"hi","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"takeScreenshot","type":"","text":"","expect":0},{"action":"tap","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"Login","expect":0}]';
+
+  //TabBar
+  // var jsonArray = '[{"action":"delayed","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"fair使用和介绍","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"find.text","type":"","text":"fair 模板代码","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.byType","type":"ListView","text":"","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"drag","type":"","text":"","expect":0,"offsetY":-600.0},{"action":"delayed","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"TabBar >>>","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"All","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"Active","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0},{"action":"find.text","type":"","text":"Inactive","expect":0},{"action":"expect","type":"","text":"","expect":1},{"action":"tap","type":"","text":"","expect":0},{"action":"pumpAndSettle","type":"","text":"","expect":0},{"action":"pump","type":"","text":"","expect":0},{"action":"delayed","type":"","text":"","expect":0}]';
+
   List items = jsonDecode(jsonArray);
 
   await Future.forEach(items, (item) async {
@@ -58,6 +66,13 @@ Future<Finder?> commonTest(Map userMap, WidgetTester tester,
   configData.type = userMap['type'];
   configData.text = userMap['text'];
   configData.expect = userMap['expect'];
+  if (userMap['offsetX'] != null) {
+    configData.offsetX = userMap['offsetX'];
+  }
+  if (userMap['offsetY'] != null) {
+    configData.offsetY = userMap['offsetY'];
+  }
+
   print(userMap.toString());
   switch (configData.action) {
     case 'delayed':
@@ -79,6 +94,13 @@ Future<Finder?> commonTest(Map userMap, WidgetTester tester,
         print("暂不支持 tap finder is null" );
       }
       break;
+    case 'drag':
+      if (finder != null) {
+        await tester.drag(finder,Offset(configData.offsetX, configData.offsetY));
+      } else {
+
+      }
+      break;
     case 'pump':
       await tester.pump();
       break;
@@ -92,6 +114,9 @@ Future<Finder?> commonTest(Map userMap, WidgetTester tester,
           break;
         case 'Text':
           finder = find.byType(Text);
+          break;
+        case 'ListView':
+          finder = find.byType(ListView);
           break;
         default:
           print("暂不支持type "+configData.type);
