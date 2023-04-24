@@ -13,7 +13,9 @@ class FairNet extends IFairPlugin {
     return _fairNet;
   }
 
-  Future<dynamic> request(dynamic map) async {
+  Future<dynamic> request(dynamic map,
+      // do your business logic in this call back
+      Future<Map?> Function(Map reqData) run,) async {
     if (map == null) {
       return;
     }
