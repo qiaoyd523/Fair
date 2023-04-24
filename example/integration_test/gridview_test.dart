@@ -17,13 +17,12 @@ void main() {
 
     await delayed();
 
-    // await binding.convertFlutterSurfaceToImage();
+    await binding.convertFlutterSurfaceToImage();
 
     await tester.pumpAndSettle();
     await tester.pump();
 
-    //截图
-    // await takeScreenshot(tester, binding);
+    await takeScreenshot(tester, binding);
 
     await delayed();
     expect(find.text('fair使用和介绍'), findsOneWidget);
@@ -49,7 +48,8 @@ void main() {
     final itemFinder = find.byType(Image);
     // Verify that the item contains the correct text.
     expect(itemFinder, findsNWidgets(8));
-
+    //截图
+    await takeScreenshot(tester, binding);
     await delayed();
 
   });
@@ -65,7 +65,6 @@ Future<void> delayed() async {
 
 Future<void> takeScreenshot(
     WidgetTester tester, IntegrationTestWidgetsFlutterBinding binding) async {
-
   // Trigger a frame.
   await tester.pumpAndSettle();
   await binding
