@@ -14,7 +14,7 @@ dependencies:
   crypto: ^3.0.1
   build_config: ^1.0.0
   process: ^4.2.2
-  archive: ^3.3.0
+  archive: ^3.1.11
   intl: ^0.17.0
   path: ^1.8.0
   analyzer: ^5.5.0

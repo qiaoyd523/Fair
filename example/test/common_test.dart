@@ -59,6 +59,8 @@ Future<void> fair_test( WidgetTester tester,
   });
 
 
+
+
 }
 
 Future<Finder?> commonTest(Map userMap, WidgetTester tester,
@@ -71,10 +73,10 @@ Future<Finder?> commonTest(Map userMap, WidgetTester tester,
   print(userMap.toString());
   switch (configData.action) {
     case 'delayed':
-      await delayed();
+      // await delayed();
       break;
     case 'takeScreenshot':
-      await takeScreenshot(tester, binding);
+      // await takeScreenshot(tester, binding);
       break;
     case 'pumpAndSettle':
       await tester.pumpAndSettle();
@@ -131,20 +133,20 @@ Future<Finder?> commonTest(Map userMap, WidgetTester tester,
 }
 
 
-Future<void> delayed() async {
-  await Future.delayed(const Duration(milliseconds: 2000)).then((value) {
-    // ignore: avoid_print
-    print("延时2秒执行 then ");
-  });
-}
-
-
-Future<void> takeScreenshot(WidgetTester tester,
-    IntegrationTestWidgetsFlutterBinding binding) async {
-  // Trigger a frame.
-  await tester.pumpAndSettle();
-  await binding
-      .takeScreenshot('screenshot-${DateTime
-      .now()
-      .millisecondsSinceEpoch}');
-}
+// Future<void> delayed() async {
+//   await Future.delayed(const Duration(milliseconds: 2000)).then((value) {
+//     // ignore: avoid_print
+//     print("延时2秒执行 then ");
+//   });
+// }
+//
+//
+// Future<void> takeScreenshot(WidgetTester tester,
+//     IntegrationTestWidgetsFlutterBinding binding) async {
+//   // Trigger a frame.
+//   await tester.pumpAndSettle();
+//   await binding
+//       .takeScreenshot('screenshot-${DateTime
+//       .now()
+//       .millisecondsSinceEpoch}');
+// }
