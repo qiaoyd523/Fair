@@ -14,7 +14,7 @@ flutter pub get
 #cp build/fair/*.zip assets/fair/
 
 #删除历史截图
-#rm -rf screenshots
+rm -rf screenshots
 flutter drive \
   --driver=test_driver/integration_test.dart \
   --target=integration_test/fair_integration_test.dart
