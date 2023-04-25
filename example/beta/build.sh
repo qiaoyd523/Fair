@@ -17,7 +17,7 @@ flutter pub get
 #rm -rf screenshots
 flutter drive \
   --driver=test_driver/integration_test.dart \
-  --target=integration_test/common_test.dart
+  --target=integration_test/fair_integration_test.dart
 
 
 
