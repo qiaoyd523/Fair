@@ -51,6 +51,34 @@ class HomePage extends StatelessWidget {
                 return TemplatePage();
               }));
             }),
+            addItem('appbar_template入口', () {
+              showWidget(
+                fairArguments: {'fairText': 'appbar_template 展示测试'},
+                fairPath:
+                'assets/fair/lib_template_appbar_appbar_template.fair.json',
+              );
+            }),
+            addItem('detail_page入口', () {
+              showWidget(
+                fairArguments: {'fairText': 'appbar_template 展示测试'},
+                fairPath:
+                'assets/fair/lib_template_detail_page_fair_detail.fair.json',
+              );
+            }),
+            addItem('drawer_template入口', () {
+              showWidget(
+                fairArguments: {'fairText': 'appbar_template 展示测试'},
+                fairPath:
+                'assets/fair/lib_template_drawer_drawer_template.fair.json',
+              );
+            }),
+            addItem('fab_template入口', () {
+              showWidget(
+                fairArguments: {'fairText': 'appbar_template 展示测试'},
+                fairPath:
+                'assets/fair/lib_template_fab_fab_template.fair.json',
+              );
+            }),
           ],
         ),
       ),

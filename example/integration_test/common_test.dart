@@ -7,8 +7,6 @@ import 'package:integration_test/integration_test.dart';
 import 'package:example/main.dart' as app;
 import 'integration_test_util.dart' as util;
 
-import '../integration_test/counter.dart';
-
 void main() {
 
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized() as IntegrationTestWidgetsFlutterBinding;
@@ -35,7 +33,7 @@ void main() {
     // var jsonArray = '[{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"takeScreenshot"},{"action":"pump"},{"action":"find.text","text":"fair使用和介绍"},{"action":"expect","expect":1},{"action":"find.text","text":"fair 模板代码"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"delayed"},{"action":"find.byType","type":"ListView"},{"action":"drag","offsetY":-600.0},{"action":"pump"},{"action":"find.text","text":"Login >>>"},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"find.byType","type":"TextField"},{"action":"enterText","text":"hi"},{"action":"pump"},{"action":"takeScreenshot"},{"action":"find.text","text":"Login"},{"action":"tap"},{"action":"pump"},{"action":"takeScreenshot"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0}]';
 
     //pageview
-    var jsonArray = '[{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"takeScreenshot"},{"action":"pump"},{"action":"find.text","text":"fair使用和介绍"},{"action":"expect","expect":1},{"action":"find.text","text":"fair 模板代码"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"delayed"},{"action":"find.text","text":"PageView >>>"},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.byType","type":"Image"},{"action":"expect","expect":2},{"action":"takeScreenshot"}]';
+    // var jsonArray = '[{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"takeScreenshot"},{"action":"pump"},{"action":"find.text","text":"fair使用和介绍"},{"action":"expect","expect":1},{"action":"find.text","text":"fair 模板代码"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"delayed"},{"action":"find.text","text":"PageView >>>"},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.byType","type":"Image"},{"action":"expect","expect":2},{"action":"takeScreenshot"}]';
 
     //TabBar
     // var jsonArray = '[{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"find.text","text":"fair使用和介绍"},{"action":"expect","expect":1},{"action":"find.text","text":"fair 模板代码"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"find.byType","type":"ListView"},{"action":"expect","expect":1},{"action":"drag","offsetY":-600.0},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"find.text","text":"TabBar >>>"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"find.text","text":"All"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"takeScreenshot"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0},{"action":"find.text","text":"Active"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"takeScreenshot"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0},{"action":"find.text","text":"Inactive"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"takeScreenshot"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0},{"action":"delayed"},{"action":"delayed"}]';
@@ -46,6 +44,18 @@ void main() {
     //PageView
     // var jsonArray = '[{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"find.text","text":"fair使用和介绍"},{"action":"expect","expect":1},{"action":"find.text","text":"fair 模板代码"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"find.text","text":"PageView >>>"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"takeScreenshot"},{"action":"delayed"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0}]';
 
+    // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.text", "text":"appbar_template入口"},{"action":"tap"},{"action":"find.text", "text":"AppBar"},{"action":"takeScreenshot"}]';
+    // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.text", "text":"detail_page入口"},{"action":"expect","expect":1},{"action":"tap"}]';
+    // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.byType", "type":"ListView"},{"action":"drag","offsetY":-600.0},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text":"drawer_template入口"},{"action":"expect","expect":1}]';
+    //     '{"action":"delayed"},{"action":"pump"},{"action":"find.byType","type":"Drawer"},{"action":"tap"}, '
+    //     '{"action":"delayed"},{"action":"pump"},{"action":"find.byType","type":"ListView"},'
+    //     '{"action":"find.byType","type":"ListTile"},{"action":"find.text","text":"电话"},{"action":"expect","expect":1},'
+    //     '{"action":"find.text","text":"邮箱"},{"action":"expect","expect":1},'
+    //     '{"action":"find.text","text":"位置"},{"action":"expect","expect":1},'
+    //     '{"action":"find.text","text":"设置"},{"action":"expect","expect":1},'
+    //     '{"action":"find.byType","type":"Drawer"},{"action":"tap"},]';
+    var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.byType", "type":"ListView"},{"action":"drag","offsetY":-600.0},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text":"fab_template入口"},{"action":"expect","expect":1},{"action":"tap"},'
+        '{"action":"delayed"},{"action":"pumpAndSettle"}, {"action":"takeScreenshot"}]';
     await util.integrationTestByJson( tester, binding,jsonArray);
   });
 
