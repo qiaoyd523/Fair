@@ -1,11 +1,7 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:example/main.dart' as app;
-import 'integration_test_util.dart' as util;
+import 'integration_test_util.dart';
 
 void main() {
 
@@ -44,7 +40,7 @@ void main() {
     //PageView
     // var jsonArray = '[{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"find.text","text":"fair使用和介绍"},{"action":"expect","expect":1},{"action":"find.text","text":"fair 模板代码"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"find.text","text":"PageView >>>"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"takeScreenshot"},{"action":"delayed"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0}]';
 
-    await util.integrationTestByJson( tester, binding,jsonArray);
+    await integrationTestByJson( tester, binding,jsonArray);
   });
 
 }

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:example/main.dart' as app;
-import 'integration_test_util.dart' as util;
+import 'integration_test_util.dart' ;
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized()
@@ -30,7 +30,7 @@ void main() {
         await tester.pumpAndSettle();
         await binding.convertFlutterSurfaceToImage();
         await tester.pumpAndSettle();
-        await util.integrationTestByJson(tester, binding, element.testJsonString);
+        await integrationTestByJson(tester, binding, element.testJsonString);
       });
     });
   });
