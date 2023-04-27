@@ -1,11 +1,11 @@
-class ConfigData {
+class ConfigData{
   // 事件类型  pumpAndSettle（刷新跳转页面） 、pump（刷新页面）、tap（点击）、enterText（输入文字 必须有text）、drag（拖动必须有 offsetX 、offsetX）、find.text（文字查找 必须有text）、find.byKey（查找元素 必须有key）、find.byType（查找元素 必须有type）、expect（预期 必须有expect ）、takeScreenshot （截屏）、delayed （延时）
   String action = '';
 
   // key
   String key = '';
 
-  // 元素类型  （Image、Text、Icon、TextField、ListView）
+  // 元素类型  （Image、Text、Icon、TextField、ListView 、ListTile、Drawer）
   String type = '';
 
   // 文字

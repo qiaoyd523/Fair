@@ -62,6 +62,12 @@ Future<Finder?> commonTestByConfigData(
         case 'TextField':
           finder = find.byType(TextField);
           break;
+        case 'ListTile':
+          finder = find.byType(ListTile);
+          break;
+        case 'Drawer':
+          finder = find.byType(Drawer);
+          break;
         default:
           print("暂不支持 type " + configData.type);
           break;
