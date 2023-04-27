@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:example/main.dart' as app;
+import 'integration_test_data.dart';
 import 'integration_test_util.dart';
 
 void main() {
@@ -41,6 +42,12 @@ void main() {
     // var jsonArray = '[{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"find.text","text":"fair使用和介绍"},{"action":"expect","expect":1},{"action":"find.text","text":"fair 模板代码"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"find.text","text":"PageView >>>"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"takeScreenshot"},{"action":"delayed"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0}]';
 
     await integrationTestByJson( tester, binding,jsonArray);
+
+
+
+    List<ConfigData> dataList= [ConfigData.delayed(),ConfigData.delayed(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.findText('fair使用和介绍'),ConfigData.expect(1),ConfigData.findText('fair 模板代码'),ConfigData.expect(1),ConfigData.tap(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.delayed(),ConfigData.findText('StaggeredView >>>'),ConfigData.expect(1),ConfigData.tap(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.delayed(),ConfigData.delayed(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.takeScreenshot(),ConfigData.findText('click show message!'),ConfigData.expect(0)];
+
+    // await integrationTestByDataList(tester, binding, dataList);
   });
 
 }

@@ -78,11 +78,11 @@ class ConfigData {
   ConfigData.expect(this.expect) {
     action = 'expect';
   }
-
-  ConfigData.takeScreenshot(this.expect) {
+  /// Takes a screenshot.
+  ConfigData.takeScreenshot() {
     action = 'takeScreenshot';
   }
-
+  /// delayed
   ConfigData.delayed() {
     action = 'delayed';
   }
