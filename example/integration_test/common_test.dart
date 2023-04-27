@@ -1,11 +1,8 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:example/main.dart' as app;
-import 'integration_test_util.dart' as util;
+import 'integration_test_data.dart';
+import 'integration_test_util.dart';
 
 void main() {
 
@@ -56,7 +53,14 @@ void main() {
     //     '{"action":"find.byType","type":"Drawer"},{"action":"tap"},]';
     var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.byType", "type":"ListView"},{"action":"drag","offsetY":-600.0},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text":"fab_template入口"},{"action":"expect","expect":1},{"action":"tap"},'
         '{"action":"delayed"},{"action":"pumpAndSettle"}, {"action":"takeScreenshot"}]';
-    await util.integrationTestByJson( tester, binding,jsonArray);
+    // await util.integrationTestByJson( tester, binding,jsonArray);
+    await integrationTestByJson( tester, binding,jsonArray);
+
+
+
+    List<ConfigData> dataList= [ConfigData.delayed(),ConfigData.delayed(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.findText('fair使用和介绍'),ConfigData.expect(1),ConfigData.findText('fair 模板代码'),ConfigData.expect(1),ConfigData.tap(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.delayed(),ConfigData.findText('StaggeredView >>>'),ConfigData.expect(1),ConfigData.tap(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.delayed(),ConfigData.delayed(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.takeScreenshot(),ConfigData.findText('click show message!'),ConfigData.expect(0)];
+
+    // await integrationTestByDataList(tester, binding, dataList);
   });
 
 }
