@@ -34,7 +34,7 @@ void main() {
         await tester.pumpAndSettle();
         await binding.convertFlutterSurfaceToImage();
         await tester.pumpAndSettle();
-        await util.integrationTestByJson(tester, binding, element.testJsonString);
+        await integrationTestByJson(tester, binding, element.testJsonString);
       });
     });
   });
