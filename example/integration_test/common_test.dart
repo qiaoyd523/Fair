@@ -1,11 +1,8 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:example/main.dart' as app;
-import 'integration_test_util.dart' as util;
+import 'integration_test_data.dart';
+import 'integration_test_util.dart';
 
 void main() {
 
@@ -44,8 +41,6 @@ void main() {
     //PageView
     // var jsonArray = '[{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"find.text","text":"fair使用和介绍"},{"action":"expect","expect":1},{"action":"find.text","text":"fair 模板代码"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"find.text","text":"PageView >>>"},{"action":"expect","expect":1},{"action":"tap"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"pump"},{"action":"delayed"},{"action":"takeScreenshot"},{"action":"delayed"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0}]';
 
-    // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.text", "text":"appbar_template入口"},{"action":"tap"},{"action":"find.text", "text":"AppBar"},{"action":"takeScreenshot"}]';
-    // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.text", "text":"detail_page入口"},{"action":"expect","expect":1},{"action":"tap"}]';
     // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.byType", "type":"ListView"},{"action":"drag","offsetY":-600.0},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text":"drawer_template入口"},{"action":"expect","expect":1}]';
     //     '{"action":"delayed"},{"action":"pump"},{"action":"find.byType","type":"Drawer"},{"action":"tap"}, '
     //     '{"action":"delayed"},{"action":"pump"},{"action":"find.byType","type":"ListView"},'
@@ -54,9 +49,23 @@ void main() {
     //     '{"action":"find.text","text":"位置"},{"action":"expect","expect":1},'
     //     '{"action":"find.text","text":"设置"},{"action":"expect","expect":1},'
     //     '{"action":"find.byType","type":"Drawer"},{"action":"tap"},]';
-    var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.byType", "type":"ListView"},{"action":"drag","offsetY":-600.0},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text":"fab_template入口"},{"action":"expect","expect":1},{"action":"tap"},'
-        '{"action":"delayed"},{"action":"pumpAndSettle"}, {"action":"takeScreenshot"}]';
-    await util.integrationTestByJson( tester, binding,jsonArray);
+    // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.byType", "type":"ListView"},{"action":"drag","offsetY":-600.0},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text":"fab_template入口"},{"action":"expect","expect":1},{"action":"tap"},'
+    //     '{"action":"delayed"},{"action":"pumpAndSettle"}, {"action":"takeScreenshot"}]';
+    // await util.integrationTestByJson( tester, binding,jsonArray);
+    //appbar_template tests
+    // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"delayed"},{"action":"find.text", "text": "fair 模板代码","expect":1},{"action":"expect","expect":1},{"action":"tap"},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text": "AppBar >>>"},{"action":"expect", "expect":1},{"action":"tap"},{"action":"delayed"},{"action":"pump"},{"action":"takeScreenshot"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0}]';
+    //detail_page tests
+    // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"find.text", "text": "fair 模板代码","expect":1},{"action":"expect","expect":1},{"action":"tap"},{"action":"delayed"},{"action":"pump"},{"action":"find.byType","type":"ListView"},{"action":"expect","expect":1},{"action":"drag","offsetY":-1000.0},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text": "Detail >>>"},{"action":"expect", "expect":1},{"action":"tap"},{"action":"delayed"},{"action":"pump"},{"action":"takeScreenshot"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0}]';
+    //FAB tests
+    // var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"delayed"},{"action":"find.text", "text": "fair 模板代码","expect":1},{"action":"expect","expect":1},{"action":"tap"},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text": "FAB >>>"},{"action":"expect", "expect":1},{"action":"tap"},{"action":"delayed"},{"action":"pump"},{"action":"takeScreenshot"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0}]';
+    //Drawer tests
+    var jsonArray = '[{"action":"delayed"},{"action":"pumpAndSettle"},{"action":"delayed"},{"action":"find.text", "text": "fair 模板代码","expect":1},{"action":"expect","expect":1},{"action":"tap"},{"action":"delayed"},{"action":"pump"},{"action":"find.text", "text": "Drawer >>>"},{"action":"expect", "expect":1},{"action":"tap"},{"action":"delayed"},{"action":"pump"},{"action":"takeScreenshot"},{"action":"find.text","text":"click show message!"},{"action":"expect","expect":0}]';
+    await integrationTestByJson( tester, binding,jsonArray);
+
+
+    List<ConfigData> dataList= [ConfigData.delayed(),ConfigData.delayed(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.findText('fair使用和介绍'),ConfigData.expect(1),ConfigData.findText('fair 模板代码'),ConfigData.expect(1),ConfigData.tap(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.delayed(),ConfigData.findText('StaggeredView >>>'),ConfigData.expect(1),ConfigData.tap(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.delayed(),ConfigData.delayed(),ConfigData.pumpAndSettle(),ConfigData.pump(),ConfigData.takeScreenshot(),ConfigData.findText('click show message!'),ConfigData.expect(0)];
+
+    // await integrationTestByDataList(tester, binding, dataList);
   });
 
 }
