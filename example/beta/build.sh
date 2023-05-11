@@ -8,6 +8,7 @@ flutter pub get
 #flutter pub run build_runner clean
 #flutter pub run build_runner build --delete-conflicting-outputs
 #
+#cp build/fair/*.fair.bin assets/fair/
 #cp build/fair/*.fair.js assets/fair/
 #cp build/fair/*.fair.json assets/fair/
 #cp build/fair/*.fair.metadata assets/fair/
@@ -15,6 +16,7 @@ flutter pub get
 
 #删除历史截图
 rm -rf screenshots
+#启动integration_test
 flutter drive \
   --driver=test_driver/integration_test.dart \
   --target=integration_test/fair_integration_test.dart
