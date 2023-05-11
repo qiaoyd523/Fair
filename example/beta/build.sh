@@ -7,7 +7,8 @@ flutter pub get
 # 执行 编译
 #flutter pub run build_runner clean
 #flutter pub run build_runner build --delete-conflicting-outputs
-#
+
+# 复制 fair 产物（bin 需要配置 flatbuffers 生成）
 #cp build/fair/*.fair.bin assets/fair/
 #cp build/fair/*.fair.js assets/fair/
 #cp build/fair/*.fair.json assets/fair/
