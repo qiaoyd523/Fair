@@ -68,6 +68,9 @@ Future<Finder?> commonTestByConfigData(
         case 'Drawer':
           finder = find.byType(Drawer);
           break;
+        case 'AppBar':
+          finder = find.byType(AppBar);
+          break;
         default:
           print("暂不支持 type " + configData.type);
           break;
